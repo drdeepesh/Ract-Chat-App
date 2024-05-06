@@ -1,38 +1,116 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between; /* Ensures elements are spaced evenly */
+  min-height: 100vh; /* Ensures the app fills the entire viewport */
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+header.App-header {
+  width: 100%;
+  background-color: #2196F3;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.App-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #2196F3;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000; /* Ensure the header appears above the message thread */
+}
+
+h1.header {
+  margin: 0 0 0 20px;
+  font-size: 20px;
+  font-weight: medium;
+  color: #fff;
+}
+
+h2.subheader {
+  margin: 0 0 0 20px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #ccc;
+}
+
+.message-thread {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 10px;
+  max-height: calc(100vh - 150px); /* Adjust the height according to your header's height */
+  overflow-y: auto;
+  padding-top: 70px; /* Adjust the top padding to accommodate the header */
+}
+
+.message {
+  background-color: #e0e0e0;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+.message button.like-button {
+  margin-left: 10px;
+  border: none;
+}
+
+.user {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.input-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.input-box input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-box button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.input-box .emoji-button {
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0.5; /* Faded effect */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  background-color: transparent; /* Remove background color */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-box .emoji-button:hover {
+  opacity: 1; /* Full opacity on hover */
+  background-color: transparent; /* Remove background color */
+}
+
+.input-box button:hover {
+  background-color: #0056b3;
 }
